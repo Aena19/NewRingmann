@@ -5,11 +5,11 @@
 
 button[aria-expanded="true"] > span.navbar-toggler-icon {
     display: none;
-  }
+}
 
-  button[aria-expanded="false"] > span.close {
+button[aria-expanded="false"] > span.close {
     display: none;
-  }
+}
 
 /* Mobile */
 .landing-container {
@@ -30,7 +30,11 @@ button[aria-expanded="true"] > span.navbar-toggler-icon {
     }
 }
 
- a.menu-animation:hover {
+.top-menu > li:hover > .dropdown-submenu {
+    display: block;
+}
+
+a.menu-animation:hover {
     text-decoration: underline;
     text-underline-offset: 8px; 
 } 
