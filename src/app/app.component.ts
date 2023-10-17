@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-declare var name: any;
+//declare var myExtObject: any;
 
 @Component({
   selector: 'app-root',
@@ -10,8 +10,11 @@ declare var name: any;
 export class AppComponent implements OnInit{
   title = 'Ringmann';
 
+  @Input() question : string = "Q1"
+  @Input() answer : string = "A1"
+
   ngOnInit(): void {
-    new name();
+  //  new myExtObject();
   }
   
 }
