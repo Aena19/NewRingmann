@@ -11,6 +11,25 @@ button[aria-expanded="true"] > span.navbar-toggler-icon {
     display: none;
   }
 
+/* Mobile */
+.landing-container {
+    padding-top: 80px;
+}
+
+/* Tablet */
+@media (min-width:600px) {
+    .landing-container {
+        padding-top: 80px;
+    }
+}
+
+/* Desktop */
+@media (min-width:900px) {
+    .landing-container {
+        padding-top: 90px;
+    }
+}
+
  a.menu-animation:hover {
     text-decoration: underline;
     text-underline-offset: 8px; 
