@@ -92,9 +92,31 @@ a{
     font-size: 50px;
 }
 
-.tech-image{
-    width: 70%;
+/* .prod-img{
+
+    width: 50%;
+} */
+
+.prod-text{
+    padding-left: 3%;
+    color: grey;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: .7px;
 }
+
+@media (min-width:1px) {
+    .tech-image{
+        width: 100%;
+    }
+}
+
+@media (min-width:900px) {
+    .tech-image{
+        width: 70%;
+    }
+}
+
 /* .title::after{
     content: '';
     background: black;

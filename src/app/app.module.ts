@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
@@ -13,6 +14,8 @@ import { LandingStatementComponent } from './landing-statement/landing-statement
 import { HomeComponent } from './home/home.component';
 import { TechnicalComponent } from './technical/technical.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ProductCardComponent } from './product-card/product-card.component';
+import { ProductListComponent } from './product-list/product-list.component';
 
 const routes : Routes = [
   {path: '', redirectTo: '/home',pathMatch:'full'},
@@ -22,6 +25,7 @@ const routes : Routes = [
   {path: 'technical/tss', component: TechnicalComponent},
   {path: 'technical/cc', component: TechnicalComponent},
   {path: 'technical/tco', component: TechnicalComponent},
+  {path: 'products', component: ProductListComponent},
   {path: '**', component: PageNotFoundComponent}
 ]
 
@@ -37,10 +41,13 @@ const routes : Routes = [
     LandingStatementComponent,
     HomeComponent,
     TechnicalComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ProductCardComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
   ],
   providers: [],
