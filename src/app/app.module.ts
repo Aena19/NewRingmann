@@ -16,6 +16,12 @@ import { TechnicalComponent } from './technical/technical.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { PriceFilterComponent } from './price-filter/price-filter.component';
+import { ProductsComponent } from './products/products.component';
+import { FlangeFilterComponent } from './flange-filter/flange-filter.component';
+import { SizeFilterComponent } from './size-filter/size-filter.component';
+import { LandingProductDescComponent } from './landing-product-desc/landing-product-desc.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes : Routes = [
   {path: '', redirectTo: '/home',pathMatch:'full'},
@@ -25,7 +31,7 @@ const routes : Routes = [
   {path: 'technical/tss', component: TechnicalComponent},
   {path: 'technical/cc', component: TechnicalComponent},
   {path: 'technical/tco', component: TechnicalComponent},
-  {path: 'products', component: ProductListComponent},
+  {path: 'products', component: ProductsComponent},
   {path: '**', component: PageNotFoundComponent}
 ]
 
@@ -43,7 +49,13 @@ const routes : Routes = [
     TechnicalComponent,
     PageNotFoundComponent,
     ProductCardComponent,
-    ProductListComponent
+    ProductListComponent,
+    PriceFilterComponent,
+    ProductsComponent,
+    FlangeFilterComponent,
+    SizeFilterComponent,
+    LandingProductDescComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
