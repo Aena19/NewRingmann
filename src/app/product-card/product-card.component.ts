@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Product } from 'src/assets/models/product.model';
+import {Router,ActivatedRoute} from '@angular/router'
 
 @Component({
   selector: 'app-product-card',
@@ -9,15 +10,13 @@ import { Product } from 'src/assets/models/product.model';
 export class ProductCardComponent {
 
  @Input() product! : Product;
+ constructor(private route : ActivatedRoute, private router : Router){}
 
-// p : Pro = new Pro
-  
+ goToProductDetail(){
+  console.log('goToProductDetail')
+
+  this.router.navigate([String(this.product.id)],{relativeTo : this.route})  
+ }
+
 }
 
-// export class Pro{
-
-//   name:String = "abc";
-//   imgsrc:string="sigma-excel-726647.webp";
-//   price:number=100;
- 
-// }

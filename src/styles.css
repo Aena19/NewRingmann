@@ -57,12 +57,35 @@ a.footer-animation:hover {
 
 a.menu-animation{
     text-transform: uppercase;
+    /* white-space: normal; */
 }
 
 a.filter-animation:hover {
     text-decoration: underline;
     text-underline-offset: 5px; 
 } 
+
+.prod-img:hover{
+    cursor: pointer;
+    /* background-color: lightgray; */
+    text-decoration: underline;
+    text-underline-offset: 5px; 
+    transform: scale(1.05);
+}
+
+.prod-det-nav-links{
+    cursor: pointer;
+    text-decoration: underline;
+    text-underline-offset: 5px; 
+    color: blue;
+}
+.prod-detail-sub{
+    color: grey;
+    font-size: 12px;
+    font-weight: lighter;
+    text-decoration: underline;
+    /* text-underline-offset: 11px;  */
+}
 
 a{
     text-underline-offset: 5px;
@@ -124,6 +147,20 @@ a{
     font-size: 14px;
     font-weight: 400;
     letter-spacing: .7px;
+}
+
+.prod-detail-title{
+    font-size: xx-large;
+    font-weight: 400;
+}
+
+.prod-detail-price{
+    font-size:18px;
+}
+
+.prod-detail-subheading{
+    font-weight: bold;
+    font-size: 15px; 
 }
 
 .footer-link-item{

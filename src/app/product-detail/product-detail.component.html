@@ -1,0 +1,166 @@
+
+
+<div  *ngFor="let product of products; let i = index">
+    <div class="container landing-container" *ngIf="i === productId - 1">
+
+        <nav class="navbar">
+            <div class="container-fluid ">
+                <div class="prod-det-nav-links" (click)="goBackToProducts()">Back to Products</div>
+                <div class="prod-det-nav-links">
+                    <ul class="list-unstyled list-group list-group-horizontal gap-3 ">
+                        <li *ngIf="productId != firstProductId" (click)="gotoPrevious()">
+                            Previous Product
+                        </li>
+                        <li *ngIf="productId != lastProductId" (click)="gotoNext()">
+                            Next Product
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="container">
+                    <div *ngIf="product.imgsrc; else multipleimages">
+                        <img src="../../assets/images/{{product.imgsrc}}" class="img-fluid"/>
+                    </div>
+                    <ng-template #multipleimages>
+                        <div class="row">
+                            <img src="../../assets/images/{{product.imgsrc1}}" class="img-fluid"/>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col">
+                                <img src="../../assets/images/{{product.imgsrc2}}" class="img-fluid"/>
+                            </div>
+                            <div class="col">
+                                <img src="../../assets/images/{{product.imgsrc3}}" class="img-fluid"/>
+                            </div>
+                        </div>
+                        
+                    </ng-template>
+                </div> 
+            </div>
+            <div class="col-6">
+                <p class="prod-detail-title">
+                    {{product.name}}
+                </p>
+                <p class="prod-detail-price" id="pricelabel" *ngIf="newPrice != ''">
+                    ₹ {{newPrice}}.00
+                </p>
+                <p class="prod-detail-price" id="pricelabel" *ngIf="newPrice == ''">
+                    ₹ {{product.startingprice}}.00
+                </p>
+                <div *ngIf="product.sizedetails">
+                    <p class="prod-detail-subheading">
+                        Size (ID x FD x H) <span class="prod-detail-sub">(Click to see price as per size)</span>
+                    </p>
+                    <div class="d-flex flex-wrap">
+                        <ul class="prod-size col-6 col-lg-4 col-xl-3" *ngFor="let s of product.sizedetails let i = index">
+                            <!-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="₹ {{s.price}}">
+                                {{s.size}}
+                            </li> -->
+                            <!-- <button type="button" class="btn btn-outline-secondary btn-sm w-100" id="size{{i}}" name="{{s.price}}" (click)="changePrice($event)">{{s.size}}</button> -->
+
+                            <input type="radio" class="btn-check" name="size" id="size{{i}}">
+                            <label class="btn btn-outline-secondary btn-sm w-100" for="size{{i}}" (click)="changePrice($event)" title="{{s.price}}">{{s.size}}</label>
+                        </ul>
+                    </div>
+                </div>
+				
+				<div *ngIf="product.flange">
+                    <p class="prod-detail-subheading">
+                        Flange
+                    </p>
+                    <div class="d-flex flex-wrap">
+                        <ul class="prod-size col-6 col-lg-3" *ngFor="let f of product.flange let i = index">
+                            <input type="radio" class="btn-check" name="flange" id="flange{{i}}">
+                            <label class="btn btn-outline-secondary btn-sm w-100" for="flange{{i}}">{{f}}</label>
+                        </ul>
+                    </div>
+                </div>
+                <div *ngIf="product.dimensiondetails">
+                    <p class="prod-detail-subheading">
+                        Dimensions <span class="prod-detail-sub">(Click to see price as per size)</span>
+                    </p>
+                    <div class="d-flex flex-wrap">
+                        <ul class="prod-size col-7 col-lg-4" *ngFor="let d of product.dimensiondetails let i = index">
+                            <input type="radio" class="btn-check" name="size" id="dimension{{i}}">
+                            <label class="btn btn-outline-secondary btn-sm w-100" for="dimension{{i}}" (click)="changePrice($event)" title="{{d.price}}">{{d.dimension}}</label>
+                        </ul>
+                    </div>
+                </div>
+                <div *ngIf="product.lubrication">
+                    <p class="prod-detail-subheading">
+                        Lubrication
+                    </p>
+                    <div class="d-flex flex-wrap">
+                        <ul class="prod-size col-7 col-lg-4" *ngFor="let l of product.lubrication let i = index">
+                            <input type="radio" class="btn-check" name="lubrication" id="lubrication{{i}}">
+                            <label class="btn btn-outline-secondary btn-sm w-100" for="lubrication{{i}}">{{l}}</label>
+                        </ul>
+                    </div>
+                </div>
+                <div *ngIf="product.fitting">
+                    <p class="prod-detail-subheading">
+                        Fitting
+                    </p>
+                    <div class="d-flex flex-wrap">
+                        <ul class="prod-size col-7 col-lg-4" *ngFor="let f of product.fitting let i = index">
+                            <input type="radio" class="btn-check" name="fitting" id="fitting{{i}}">
+                            <label class="btn btn-outline-secondary btn-sm w-100" for="fitting{{i}}">{{f}}</label>
+                        </ul>
+                    </div>
+                </div>
+                <div *ngIf="product.material">
+                    <p class="prod-detail-subheading">
+                        Material
+                    </p>
+                    <div class="d-flex flex-wrap">
+                        <ul class="prod-size col-7 col-lg-4" *ngFor="let m of product.material let i = index">
+                            <input type="radio" class="btn-check" name="material" id="material{{i}}">
+                            <label class="btn btn-outline-secondary btn-sm w-100" for="material{{i}}">{{m}}</label>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row m-2 ">
+            <p class="prod-detail-subheading">
+                Description
+            </p>
+            <p class="fst-italic ">
+                {{product.description}}
+            </p>
+            <div *ngIf="product.features">
+                <p class="prod-detail-subheading">
+                    Features
+                </p>
+                <div class="d-flex flex-wrap">
+                    <ul class="prod-size col-6" *ngFor="let f of product.features">
+                        <li class="fst-italic ">
+                            {{f}}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div *ngIf="product.example">
+                <p class="prod-detail-subheading">
+                    Kindly choose the suitable ring size as per below example:
+                </p>
+                <div class="container ">
+                    <ul *ngFor="let e of product.example let i = index" class="list-unstyled">
+                        <div *ngIf="i === 0">
+                            <li class="fst-italic fw-bold ">{{e}}</li>
+                        </div>
+                        <div *ngIf="i != 0">
+                            <li>{{e}}</li>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

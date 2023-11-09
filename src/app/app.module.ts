@@ -22,6 +22,7 @@ import { FlangeFilterComponent } from './flange-filter/flange-filter.component';
 import { SizeFilterComponent } from './size-filter/size-filter.component';
 import { LandingProductDescComponent } from './landing-product-desc/landing-product-desc.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 const routes : Routes = [
   {path: '', redirectTo: '/home',pathMatch:'full'},
@@ -32,6 +33,7 @@ const routes : Routes = [
   {path: 'technical/cc', component: TechnicalComponent},
   {path: 'technical/tco', component: TechnicalComponent},
   {path: 'products', component: ProductsComponent},
+  {path: 'products/:id', component: ProductDetailComponent},
   {path: '**', component: PageNotFoundComponent}
 ]
 
@@ -55,7 +57,8 @@ const routes : Routes = [
     FlangeFilterComponent,
     SizeFilterComponent,
     LandingProductDescComponent,
-    FooterComponent
+    FooterComponent,
+    ProductDetailComponent
   ],
   imports: [
     BrowserModule,

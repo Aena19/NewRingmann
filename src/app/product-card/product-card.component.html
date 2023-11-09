@@ -1,21 +1,27 @@
 <!-- <div class="d-flex flex-row"> -->
     <div class="container">
-        <div class="border rounded-4">
-            <div class="row">
-                <div>
-                    <img src="assets/images/{{product.imgsrc}}" class="img-fluid rounded-4 p-2">
+        <div (click)="goToProductDetail()" class="prod-img">
+            <div class="border rounded-4">
+                <div class="row">
+                    <div *ngIf="product.imgsrc">
+                        <img src="assets/images/{{product.imgsrc}}" class="img-fluid rounded-4 p-2">
+                    </div>
+                    <div *ngIf="product.imgsrc2">
+                        <img src="assets/images/{{product.imgsrc2}}" class="img-fluid rounded-4 p-2">
+                    </div>
+                </div>
+                <div class="row prod-text">
+                    <p>
+                        {{product.name}}
+                    </p>
+                </div>
+                <div class="row prod-text">
+                    <p>
+                        From ₹ {{product.startingprice}}.00
+                    </p>
                 </div>
             </div>
-            <div class="row prod-text">
-                <p>
-                    {{product.name}}
-                </p>
-            </div>
-            <div class="row prod-text">
-                <p>
-                    From ₹ {{product.price}}.00
-                </p>
-            </div>
         </div>
+        <!-- <router-outlet></router-outlet> -->
     </div>
 <!-- </div> -->

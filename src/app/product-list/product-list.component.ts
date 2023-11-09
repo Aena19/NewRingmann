@@ -16,7 +16,7 @@ export class ProductListComponent {
   constructor(private http: HttpClient, private route : ActivatedRoute) {}
 
   ngOnInit(){
-    console.log('in productlist')
+    console.log('in productlist component')
     this.getProductsData()
   }
 
