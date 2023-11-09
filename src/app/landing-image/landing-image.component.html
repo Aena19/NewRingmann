@@ -1,20 +1,29 @@
-<div class="container-fluid landing-container">
-    <div class="row">
-        <div class="col-sm-6">
-          <img src="assets/images/sigma-excel-726647.webp" alt="Sigma Excel" class="img-fluid">
-          <div class="border caption1 text-xxl-center p-2 fw-bolder ">
-            <h2>
-              <a [routerLink]="['..','products','1']">Sigma Excel</a>
-            </h2>
-          </div>
+<div class="container-fluid  landing-container">
+  <div class="row">
+    <div class="col-7 col-lg-6">
+      <div class="card">
+        <img src="../assets/images/sigma-excel-726647.webp" class="card-img-top"
+          alt="Sigma Excel" />
+        <div class="card-img-overlay text-center d-flex flex-column justify-content-center">
+          <a  [routerLink]="['..','products','1']" class="card-text text-bg-light ">
+            <h5>Sigma Excel</h5>
+          </a>
         </div>
-        <div class="col-sm-6">
-          <img src="assets/images/black-diamond-293015.webp" alt="Black Diamond" class="img-fluid">
-          <div class="border caption2 p-2">
-            <h2>
-              <a [routerLink]="['..','products',4]">Black Diamond</a>
-            </h2>
+      </div>
+    </div>
+    <div class="col-7 col-lg-6">
+      <div class="card">
+        <img src="../assets/images/black-diamond-293015.webp" class="card-img-top"
+          alt="Black Diamond"/>
+          <div class="card-img-overlay text-center d-flex flex-column justify-content-center">
+            <a  [routerLink]="['..','products','4']" class="card-text text-bg-light ">
+              <h5>Black Diamond</h5>
+            </a>
           </div>
-        </div>
-    </div>    
+      </div>
+    </div>
+  </div>
+  
+  
+    
 </div>
