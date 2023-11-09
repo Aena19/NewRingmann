@@ -23,19 +23,19 @@
             <div class="col-6">
                 <div class="container">
                     <div *ngIf="product.imgsrc; else multipleimages">
-                        <img src="../../assets/images/{{product.imgsrc}}" class="img-fluid"/>
+                        <img src="assets/images/{{product.imgsrc}}" class="img-fluid"/>
                     </div>
                     <ng-template #multipleimages>
                         <div class="row">
-                            <img src="../../assets/images/{{product.imgsrc1}}" class="img-fluid"/>
+                            <img src="assets/images/{{product.imgsrc1}}" class="img-fluid"/>
                         </div>
                         <br>
                         <div class="row">
                             <div class="col">
-                                <img src="../../assets/images/{{product.imgsrc2}}" class="img-fluid"/>
+                                <img src="assets/images/{{product.imgsrc2}}" class="img-fluid"/>
                             </div>
                             <div class="col">
-                                <img src="../../assets/images/{{product.imgsrc3}}" class="img-fluid"/>
+                                <img src="assets/images/{{product.imgsrc3}}" class="img-fluid"/>
                             </div>
                         </div>
                         
