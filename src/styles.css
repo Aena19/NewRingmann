@@ -36,6 +36,7 @@ button[aria-expanded="false"] > span.close {
     }
 }
 
+
 .top-menu > li:hover > .dropdown-submenu {
     display: block;
 }
@@ -193,7 +194,31 @@ a{
     letter-spacing: .7px;
 }
 
+.filter-sort-text{
+    color: grey;
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: .7px;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.filter-button{
+    border-width: 0px;
+}
+
+.filter-footer{
+   
+}
+
+
+.filter-bar-close{
+    font-size: 20px;
+    cursor: pointer;
+}
+
 .sort-select{
+
     border: 2px solid #eeeee4;
 }
 

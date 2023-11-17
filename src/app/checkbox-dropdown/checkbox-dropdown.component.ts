@@ -33,10 +33,13 @@ export class CheckboxDropdownComponent {
   }
 
 filterValueChanged(){
+  console.log('in filterValueChanged')
   var selectedValues
 
   selectedValues = this.getSelectedValues()
+  console.log(selectedValues)
   this.selectedCount = selectedValues.length
+  console.log(this.selectedCount)
   this.filterValueChangeEvent.emit(selectedValues.toString() + ',' + this.filterName + ',' + this.selectedCount)
 }
 

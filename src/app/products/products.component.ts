@@ -19,8 +19,10 @@ export class ProductsComponent {
   selectedSizeValues : string[] = []
   changedFilter : string = ""
   priceFilterUpdate : boolean = true
+  priceSelectionUpdate : boolean = true
   flangeFilterUpdate : boolean = true
   sizeFilterUpdate : boolean = true
+  totalProductsCount : number = 0
   productsToBeDisplayedCount : number = 0
   filterToBeRemoved !: string
 
@@ -31,10 +33,11 @@ export class ProductsComponent {
   }
  
    getProductsData(){
-     console.log('in getProductsData')
      return this.http.get(this.url).subscribe({
        next: (data) => {
-        this.products = data as Product[]; 
+        this.products = data as Product[];
+        this.totalProductsCount = this.products.length 
+        this.productsToBeDisplayedCount = this.totalProductsCount
         this.finalProducts = this.products
       },
        error:(error) => {console.log(error)}
@@ -81,15 +84,12 @@ export class ProductsComponent {
     this.filteredProducts = this.products
     if(this.selectedPriceValues.length != 0)
         this.filteredProducts = this.filterProductsByPrice(this.selectedPriceValues)
-//    console.log(this.filteredProducts)
 
     if(this.selectedFlangeValues.length != 0)
       this.filteredProducts = this.filterProductsByFlange(this.selectedFlangeValues)
-//    console.log(this.filteredProducts)
 
     if(this.selectedSizeValues.length != 0)
       this.filteredProducts = this.filterProductsBySize(this.selectedSizeValues)
-    //    console.log(this.filteredProducts)
 
     this.finalProducts = this.filteredProducts.filter(this.uniqueFilterProduct)
     this.finalProducts = this.finalProducts.sort((p1,p2) => p1.id - p2.id)
@@ -122,7 +122,7 @@ export class ProductsComponent {
     var filterValue :string
     var tempProduct : Product[] = []
     var finalProduct : Product[] = []
-    console.log(selectedFlangeValues)
+
     for(let i = 0 ; i < this.selectedFlangeValues.length; i++){
 
       filterValue = this.selectedFlangeValues[i].substring(0,this.selectedFlangeValues[i].length-4)
@@ -135,28 +135,12 @@ export class ProductsComponent {
   }
 
   filterProductsBySize(selectedSizeValues : string[]){
-    console.log('in filterProductsBySize')
     var filterValue :string
     var tempProduct : Product[] = []
     var finalProduct : Product[] = []
     for(let i = 0 ; i < this.selectedSizeValues.length; i++){
       filterValue = this.selectedSizeValues[i].substring(0,this.selectedSizeValues[i].length-4)
-      console.log(filterValue)
-      // tempProduct = this.filteredProducts
-      //                                     .filter(product => product.sizedetails)
-      //                                     .filter(prod => prod.sizedetails)
-      //                                     .filter(p => p.sizedetails
-      //                                                               .filter(sizedetails => console.log(sizedetails.size))
-      //                                                               .filter(sd => sd.size.includes(filterValue))
-      //                                                               )
-
-      // tempProduct = this.filteredProducts
-      //                                     .filter(product => product.sizedetails)
-      //                                     .filter(prod => prod.sizedetails
-      //                                                                     .filter(sizedetails => sizedetails.size)
-      //                                                                     .filter(sd => sd.size.includes(filterValue))
-      //                                                                     )
-
+   
       for (let j = 0 ; j < this.filteredProducts.length; j++){
         var fp = this.filteredProducts[j]
         var sd = []
@@ -167,7 +151,6 @@ export class ProductsComponent {
       }
       
     }
-    console.log(finalProduct)
     return finalProduct
   }
 
@@ -176,9 +159,7 @@ export class ProductsComponent {
   }
 
   removeFilter(value : string, filterName : string){
-    console.log('removeFilter ' + filterName + '...' + value)
     value = value.substring(0,value.length -4)
-    console.log(value)
     this.filterToBeRemoved = value
     if(filterName === 'Price'){
       this.priceFilterUpdate = true
@@ -202,8 +183,6 @@ export class ProductsComponent {
     else if(filterName === 'Size(idxfdxh)'){
       for(let i = 0; i < this.selectedSizeValues.length; i++){
         var size : string = this.selectedSizeValues[i].substring(0,this.selectedSizeValues[i].length - 4)
-        console.log(size)
-        console.log(value)
         if(size === value){
           this.selectedSizeValues.splice(i,1)
           break
@@ -214,7 +193,6 @@ export class ProductsComponent {
   }
 
   removeAllFilters(){
-    console.log('removeAllFilters')
     this.selectedFlangeValues.length = 0
     this.selectedPriceValues.length = 0
     this.selectedSizeValues.length = 0
@@ -260,5 +238,14 @@ export class ProductsComponent {
       this.finalProducts = this.finalProducts.sort((p1,p2) => p2.startingprice - p1.startingprice)
     }
 
+  }
+
+  closeFilterBar(){
+    var elem = document.getElementById('collapsibleFilter')
+    if(elem){
+      elem.classList.add('hide');
+      elem.classList.remove('show');
+    }
+    
   }
 }

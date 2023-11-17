@@ -23,12 +23,11 @@ export class FlangeFilterComponent {
       this.getFlangeValues()
     if(this.removeFilter)
       this.removeSelection()
-  //  console.log(this.flangeList)
   }
 
   getFlangeValues(){
     var tempFlangeValues = []
-    var flangeList = ["1 (3.2 mm)","1/2 (2.6 mm)","1 1/2 (3.6 mm)","2 (4mm)"]
+    var flangeList = ["1/2 (2.6 mm)","1 (3.2 mm)","1 1/2 (3.6 mm)","2 (4mm)"]
 
     if(this.products != null){
       for(let i = 0; i < flangeList.length; i++){
@@ -43,8 +42,6 @@ export class FlangeFilterComponent {
         this.flangeValues[0][i] = flangeValue + " (" + flangeCount + ")"
       }
 
-      this.flangeValues[0] = this.flangeValues[0].sort()
-    
       if(this.selectedValues.length == 0){
         for(let i = 0;i<this.flangeValues[0].length;i++)
         {

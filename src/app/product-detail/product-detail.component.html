@@ -58,11 +58,6 @@
                     </p>
                     <div class="d-flex flex-wrap">
                         <ul class="prod-size col-7 col-md-6 col-lg-4 col-xl-3" *ngFor="let s of product.sizedetails let i = index">
-                            <!-- <li data-bs-toggle="tooltip" data-bs-placement="top" title="₹ {{s.price}}">
-                                {{s.size}}
-                            </li> -->
-                            <!-- <button type="button" class="btn btn-outline-secondary btn-sm w-100" id="size{{i}}" name="{{s.price}}" (click)="changePrice($event)">{{s.size}}</button> -->
-
                             <input type="radio" class="btn-check" name="size" id="size{{i}}">
                             <label class="btn btn-outline-secondary btn-sm w-100" for="size{{i}}" (click)="changePrice($event)" title="{{s.price}}">{{s.size}}</label>
                         </ul>
