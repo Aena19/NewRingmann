@@ -1,0 +1,9 @@
+<label for="sort" class="mx-2">Sort By : </label>
+
+<select name="sort" id="sort" class="sort-select" [(ngModel)]="sortOption" (change)="sortChanged()">
+    <option value=1 class="filter-text">Featured</option>
+    <option value=2 class="filter-text">Alphabetically, A - Z</option>
+    <option value=3 class="filter-text">Alphabetically, Z- A</option>
+    <option value=4 class="filter-text">Price, low to high</option>
+    <option value=5 class="filter-text">Price, high to low</option>
+</select>

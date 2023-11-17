@@ -23,6 +23,9 @@ import { SizeFilterComponent } from './size-filter/size-filter.component';
 import { LandingProductDescComponent } from './landing-product-desc/landing-product-desc.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CheckboxDropdownComponent } from './checkbox-dropdown/checkbox-dropdown.component';
+import { FormsModule } from '@angular/forms';
+import { SortProductsDropdownComponent } from './sort-products-dropdown/sort-products-dropdown.component';
 
 const routes : Routes = [
   {path: '', redirectTo: '/home',pathMatch:'full'},
@@ -58,12 +61,15 @@ const routes : Routes = [
     SizeFilterComponent,
     LandingProductDescComponent,
     FooterComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    CheckboxDropdownComponent,
+    SortProductsDropdownComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component,Input,SimpleChanges } from '@angular/core';
 import { Product } from 'src/assets/models/product.model';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -10,23 +9,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductListComponent {
 
-  url: string = 'assets/data/products.json';
-  productsToBeDisplayed !: Product[] ;
+  @Input() products !: Product[]
 
-  constructor(private http: HttpClient, private route : ActivatedRoute) {}
-
-  ngOnInit(){
-    console.log('in productlist component')
-    this.getProductsData()
-  }
-
-  getProductsData(){
-    console.log('in getProductsData')
-    return this.http.get(this.url).subscribe({
-      next: (data) => {
-          this.productsToBeDisplayed = data as Product[]; 
-        },
-      error:(error) => {console.log(error)}
-    })
-  }
 }

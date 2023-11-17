@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="dropdown">
+        <a id="filter" class="dropdown-toggle filter-animation nav-link " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            {{filterName}}
+        </a>
+        <ul class="dropdown-menu filter-text">
+            <!-- <ng-container > -->
+                <li class="m-2">
+                    <div class="d-flex justify-content-between">
+                        <!-- <p *ngIf = "filterName === 'Price'">{{selectedPriceCount}} selected</p>
+                        <p *ngIf = "filterName === 'Flange'">{{selectedFlangeCount}} selected</p>
+                        <p *ngIf = "filterName === 'Size(idxfdxh)'">{{selectedSizeCount}} selected</p> -->
+                        <p>{{selectedCount}} selected</p>
+                        <p class="reset" (click)="reset($event)">Reset</p>
+                    </div>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                    <div class="filter-dropdown">
+                        <ng-container *ngFor="let price of filterValues[0]; let i = index;">
+                            <ng-container *ngFor="let selected of filterValues[1]; let j = index;">
+                                <ng-container *ngIf="i===j">
+                                    <li>
+                                        <div class="dropdown-item" (click)="stopClosing($event)">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="{{getValue(i)}}" id="{{filterName}}{{getValue(i)}}" [(ngModel)]="filterValues[1][j]" (change)="filterValueChanged()"/>
+                                                <label class="form-check-label filter-text" for="{{filterName}}{{getValue(i)}}">{{price}}</label>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ng-container>
+                            </ng-container>
+                        </ng-container>
+                    </div>
+            <!-- </ng-container> -->
+<!-- 
+            <ng-container *ngIf = "filterName === 'Flange'">
+                <li class="m-2">
+                    <div class="d-flex justify-content-between">
+                        <p>{{selectedFlangeCount}} selected</p>
+                        <p class="reset" (click)="reset($event)">Reset</p>
+                    </div>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <div class="filter-dropdown">
+                    <ng-container *ngFor="let flange of checkboxArrayFlangeValues; let i = index;">
+                        <ng-container *ngFor="let selected of checkboxArrayFlangeSelected; let j = index;">
+                            <ng-container *ngIf="i===j">
+                                <li>
+                                    <div class="dropdown-item" (click)="stopClosing($event)">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="{{getValue(i)}}" id="{{filterName}}{{getValue(i)}}" [(ngModel)]="checkboxArrayFlangeSelected[j]" (change)="filterValueChanged()"/>
+                                            <label class="form-check-label filter-text" for="{{filterName}}{{getValue(i)}}">{{flange}}</label>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </ng-container>
+
+            <ng-container *ngIf = "filterName === 'Size(idxfdxh)'">
+                <li class="m-2">
+                    <div class="d-flex justify-content-between">
+                        <p>{{selectedSizeCount}} selected</p>
+                        <p class="reset" (click)="reset($event)">Reset</p>
+                    </div>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <div class="filter-dropdown">
+                    <ng-container *ngFor="let size of checkboxArraySizeValues; let i = index;">
+                        <ng-container *ngFor="let selected of checkboxArraySizeSelected; let j = index;">
+                            <ng-container *ngIf="i===j">
+                                <li>
+                                    <div class="dropdown-item" (click)="stopClosing($event)">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="{{getValue(i)}}" id="{{filterName}}{{getValue(i)}}" [(ngModel)]="checkboxArraySizeSelected[j]" (change)="filterValueChanged()"/>
+                                            <label class="form-check-label filter-text" for="{{filterName}}{{getValue(i)}}" >{{size}}</label>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ng-container>
+                        </ng-container>
+                    </ng-container>
+                </div>
+            </ng-container> -->
+
+        </ul>
+    </div>
+</div>

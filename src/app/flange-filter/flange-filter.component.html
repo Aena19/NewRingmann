@@ -1,14 +1,1 @@
-<a class="nav-link dropdown-toggle filter-animation m-3" data-bs-toggle="dropdown" href="#">Flange</a>
-<ul class="dropdown-menu rounded-0 filter-text">
-    <li>
-        <div class="d-flex justify-content-between m-2">
-            <p>0 selected</p>
-            <p class="hover:cursor-pointer underline">Reset</p>
-        </div>
-    </li>
-    <li><hr></li>    
-    <li>
-        <input type="checkbox" value="1" name="flange1" id="flange1"/>
-        <label for="flange1" id="lblflange1">flange1</label>
-    </li>
-</ul>
+<app-checkbox-dropdown filterName="Flange" [filterValues] = flangeValues [selectedCount] = selectedCount (filterValueChangeEvent) = "getFilterValues($event)"></app-checkbox-dropdown>
