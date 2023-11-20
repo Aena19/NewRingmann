@@ -14,6 +14,7 @@
                         <p class="reset" (click)="reset($event)">Reset</p>
                     </div>
                 </li>
+                <!-- <li>{{filterValues[1] | json}}</li> -->
                 <li><hr class="dropdown-divider" /></li>
                     <div class="filter-dropdown">
                         <ng-container *ngFor="let price of filterValues[0]; let i = index;">
@@ -22,8 +23,8 @@
                                     <li>
                                         <div class="dropdown-item" (click)="stopClosing($event)">
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="{{getValue(i)}}" id="{{filterName}}{{getValue(i)}}" [(ngModel)]="filterValues[1][j]" (change)="filterValueChanged()"/>
-                                                <label class="form-check-label filter-text" for="{{filterName}}{{getValue(i)}}">{{price}}</label>
+                                                <input class="form-check-input" type="checkbox" value="{{getValue(i)}}" id="{{filterName}}{{getValue(i)}}" [(ngModel)]="filterValues[1][j]"/>
+                                                <label class="form-check-label filter-text" for="{{filterName}}{{getValue(i)}}" id="Label{{filterName}}{{getValue(i)}}" (click)="doCheck($event)">{{price}}</label>
                                             </div>
                                         </div>
                                     </li>

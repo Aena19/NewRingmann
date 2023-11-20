@@ -10,9 +10,9 @@ export class PriceFilterComponent {
 
   @Input() products !: Product[]
   @Input() filterUpdate !: boolean
-  @Input() selectionUpdate !: boolean
   @Input() selectedValues !: string[]
   @Input() removeFilter !: string
+  // @Input() resetClicked = new EventEmitter<string>
   @Output() filterValueChangeEvent = new EventEmitter<string>
 
   priceRangeList : string[] = ["0-50","51-100","101-150","151-200","201-250","251-300"]
@@ -20,18 +20,13 @@ export class PriceFilterComponent {
   selectedCount !: number
 
   ngOnChanges(changes: SimpleChanges) {
-      console.log(this.selectionUpdate)
       if(this.filterUpdate)
         this.getPriceValues()
-      if(this.selectionUpdate)
-        this.updateSelection()
       if(this.removeFilter != '')
         this.removeSelection()
   }
 
   getPriceValues(){
-    console.log('getPriceValues')
-    console.log(this.selectedValues)
     if(this.products != null){
       var tempProducts : Product[]
       var priceRangeList = this.priceRangeList
@@ -73,39 +68,7 @@ export class PriceFilterComponent {
           }
         }
       }
-        
-        // }
     }
-  }
-
-  updateSelection(){
-    console.log('updateSelection')
-    console.log(this.selectedValues)
-    if(this.selectedValues.length == 0){
-      for(let i = 0;i<this.priceValues[0].length;i++)
-      {
-        this.priceValues[1][i]= false
-      }
-      this.selectedCount = 0
-    }
-    else{
-      this.selectedCount = 0
-      for(let i = 0;i<this.priceValues[0].length;i++)
-      {
-        for(let j =0; j < this.selectedValues.length; j++){
-          var checkboxValue = this.priceValues[0][i].substring(0,this.priceValues[0][i].length - 4)
-          var selectedValue = this.selectedValues[j].substring(0,this.selectedValues[j].length - 4)
-          if(checkboxValue === selectedValue){
-            this.priceValues[1][i]= true
-            this.selectedCount++
-            break
-          }
-          else
-            this.priceValues[1][i]= false
-        }
-      }
-    }
-    console.log(this.selectedCount)
   }
 
   getFilterValues(filterValueString : string){

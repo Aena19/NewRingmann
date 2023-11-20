@@ -23,6 +23,7 @@
                 </svg>
                 <span class="filter-sort-text"> Filter & Sort</span>
             </button>
+            <p>{{productsToBeDisplayedCount}} products</p>
         
             <div class="collapse navbar-collapse bg-white fixed-top w-75 h-100 border border-1 rounded-2" id="collapsibleFilter">
                 <!-- <div class="container-fluid"> -->
@@ -38,7 +39,7 @@
                     <div class="d-flex">
                         <ul class="navbar-nav filter-text justify-content-end ">
                             <li class="nav-item">
-                                <app-price-filter [products] = finalProducts [filterUpdate] = priceFilterUpdate [selectionUpdate] = priceSelectionUpdate [selectedValues] = selectedPriceValues [removeFilter] = filterToBeRemoved (filterValueChangeEvent) = "getFilterValues($event)"></app-price-filter>
+                                <app-price-filter [products] = finalProducts [filterUpdate] = priceFilterUpdate [selectedValues] = selectedPriceValues [removeFilter] = filterToBeRemoved (filterValueChangeEvent) = "getFilterValues($event)"></app-price-filter>
                             </li>
                             <li class="nav-item">
                                 <app-flange-filter [products] = finalProducts [filterUpdate] = flangeFilterUpdate [selectedValues] = selectedFlangeValues [removeFilter] = filterToBeRemoved (filterValueChangeEvent) = "getFilterValues($event)"></app-flange-filter>
